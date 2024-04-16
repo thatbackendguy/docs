@@ -1,0 +1,75 @@
+# Batch Install Script for Linux Setup
+
+<img src="https://averagelinuxuser.com/assets/images/posts/2018-10-01-make-gif-in-linux-with-one-simple-command/Make-GIF-in-Linux.gif" alt="drawing" width="400"/>
+
+This script facilitates the installation of multiple applications in a single run, particularly useful for students or users setting up a Linux system for the first time.
+
+## Prerequisites
+Before running the script, ensure that `wget` is installed on your system.
+
+#### Install `wget` on Ubuntu/Debian
+```
+sudo apt update
+sudo apt install wget
+```
+
+#### Install `wget` on CentOS/Fedora
+```
+sudo yum install wget
+```
+
+#### Install `wget` on MacOS
+```
+brew install wget
+```
+### Installation Steps
+1. #### Get the `installscript` file
+Download the `installscript` file using `wget`.
+```
+wget https://github.com/thatbackendguy/batch-install/blob/main/installscript
+```
+
+2. #### Edit the Install Script
+After downloading, edit the `installscript` file using `vim` or any other text editor. Remove or comment out the installation commands for the programs you don't require.
+```
+vim installscript
+```
+
+3. #### Add Execution Permissions
+Grant execution permissions to the script using `chmod`.
+```
+sudo chmod a+x installscript
+```
+
+4. #### Run The Install Script
+Execute the `installscript` with `sudo` privileges.
+```
+sudo ./installscript
+```
+
+### Installed Programs
+The script installs the following programs:
+* build-essentials
+* Brave Browser
+* Google Chrome
+* VS Code
+* Discord
+* VLC
+* Filezilla
+* Anydesk
+* GIT
+* GIT CLI
+* Github Desktop
+* Virtual Box
+* Python3
+* net-tools
+* Monitoring Apps - nvtop, htop, sysstat, fping, traceroute, nmap
+* Nodejs
+* Wireshark
+* SSH
+* Telnet
+* Java JDK & JRE 17
+
+## Congratulations! 🎉
+You have successfully installed the programs without any hassle. ✅
+<img src="https://media1.tenor.com/m/lgbV8r0HR8cAAAAC/90s-reactions.gif" width="40%"></img>

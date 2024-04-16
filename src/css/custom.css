@@ -1,10 +1,5 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@import 'font-awesome/css/font-awesome.min.css';
 
-/* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
@@ -27,4 +22,31 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.navbar__icon {
+  height: 2rem;
+  width: 2rem;
+}
+
+.navbar__github {
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  transition: background var(--ifm-transition-fast);
+}
+
+html[data-theme='light'] .navbar__github {
+  color: #000;
+}
+
+html[data-theme='dark'] .navbar__github {
+  color: #fff;
+}
+
+.navbar__github:hover {
+  background: var(--ifm-color-emphasis-200);
 }
