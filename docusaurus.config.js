@@ -65,17 +65,9 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
-          {
-            to: '/',
-            type:'dropdown',
-            position: 'left',
-            label: 'Docs',
-            items: [
-              { to: '/category/tutorials', label: 'Tutorials' },
-              { to: '/category/projects', label: 'Projects' },
-            ]
-          },
-          { to: '/blog', label: 'Blogs', position: 'right' },
+          { to: '/category/tutorials', label: 'Tutorials', position: 'left' },
+          { to: '/category/projects', label: 'Projects', position: 'left' }, ,
+          { to: '/blog', label: 'Blog', position: 'right' },
           {
             href: 'https://github.com/thatbackendguy/',
             'aria-label': 'GitHub',
