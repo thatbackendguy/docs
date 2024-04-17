@@ -19,7 +19,6 @@ const config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
-
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'thatbackendguy', // Usually your GitHub org/user name.
@@ -58,6 +57,25 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        // The application ID provided by Algolia
+        appId: '9NKBXL697I',
+
+        // Public API key: it is safe to commit it
+        apiKey: '04be2d0208a6cf34a38415c579d2482a',
+
+        indexName: 'three-tan',
+
+        replaceSearchResultPathname: {
+          from: '/docs/', // or as RegExp: /\/docs\//
+          to: '/',
+        },
+
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+
+      },
+
       navbar: {
         title: 'ThatBackendGuy',
         logo: {
