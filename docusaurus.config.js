@@ -66,7 +66,7 @@ const config = {
         },
         items: [
           { to: '/category/tutorials', label: 'Tutorials', position: 'left' },
-          { to: '/category/projects', label: 'Projects', position: 'left' }, ,
+          { to: '/category/projects', label: 'Projects', position: 'left' },
           { to: '/blog', label: 'Blog', position: 'right' },
           {
             href: 'https://github.com/thatbackendguy/',
