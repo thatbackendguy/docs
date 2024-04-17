@@ -67,7 +67,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Welcome',
+            label: 'Docs',
           },
           { to: '/blog', label: 'Blogs', position: 'right' },
           {
@@ -81,7 +81,10 @@ const config = {
       },
       footer: {
         links: [
-          
+          {
+            label: 'Blogs',
+            href: '/blog',
+          },
           {
             label: 'GitHub',
             href: 'https://github.com/thatbackendguy/',
