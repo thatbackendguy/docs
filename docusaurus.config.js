@@ -14,7 +14,7 @@ const config = {
   favicon: 'img/favicon.ico',
   themes: ['@docusaurus/theme-live-codeblock'],
   // Set the production url of your site here
-  url: 'https://docs-three-tan.vercel.app/',
+  url: 'https://www.thatbackendguy.com/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -122,6 +122,15 @@ const config = {
               },
               {
                 html: `<a href="https://twitter.com/thatbackendguyy"><i class="fa fa-twitter navbar_icon"></i></a>`,
+              },
+            ],
+          },
+          {
+            title: 'Contact Me',
+            items: [
+              {
+                label: "Mail",
+                href:"mailto:yash@thatbackendguy.com"
               },
             ],
           },

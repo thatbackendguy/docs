@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋🏻, I'm Yash Prajapati</h1>
-<h3 align="center">Software Developer </h3><br>  
+<h3 align="center">Software Developer </h3><br>
 
 - 🌱 I’m currently learning Vert.x
 
@@ -9,7 +9,7 @@
 
 - 😀 Checkout my [**Linkedin**](https://www.linkedin.com/in/yashpra1010).
 
-- 📫 How to reach me [**yashpra1010@gmail.com**](mailto:yashpra1010@gmail.com)
+- 📫 How to reach me [**yash@thatbackendguy.com**](mailto:yash@thatbackendguy.com)
 
 <br><h3 align="left">Connect with me:</h3>
 <p align="left">
