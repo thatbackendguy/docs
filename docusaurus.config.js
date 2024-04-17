@@ -66,8 +66,8 @@ const config = {
         },
         items: [
           { to: '/category/tutorials', label: 'Tutorials', position: 'left' },
-          { to: '/category/projects', label: 'Projects', position: 'left' },
-          { to: '/blog', label: 'Blog', position: 'right' },
+          { to: '/category/projects', label: 'Projects', position: 'right' },
+          { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/thatbackendguy/',
             'aria-label': 'GitHub',
