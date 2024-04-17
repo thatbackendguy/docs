@@ -24,19 +24,11 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-.navbar__icon {
+.navbar_icon {
   height: 2rem;
   width: 2rem;
-}
-
-.navbar__github {
-  -webkit-tap-highlight-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 1.4rem;
-  transition: background var(--ifm-transition-fast);
+  font-size: 2rem;
+  color: #fff;
 }
 
 html[data-theme='light'] .navbar__github {
@@ -49,4 +41,12 @@ html[data-theme='dark'] .navbar__github {
 
 .navbar__github:hover {
   background: var(--ifm-color-emphasis-200);
+}
+
+.footer__items {
+  display: flex !important;
+}
+
+.footer__item {
+  margin-right: 1vh !important;
 }

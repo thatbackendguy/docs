@@ -66,10 +66,14 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            to: '/',
+            type:'dropdown',
             position: 'left',
             label: 'Docs',
+            items: [
+              { to: '/category/tutorials', label: 'Tutorials' },
+              { to: '/category/projects', label: 'Projects' },
+            ]
           },
           { to: '/blog', label: 'Blogs', position: 'right' },
           {
@@ -82,28 +86,35 @@ const config = {
         ],
       },
       footer: {
+        copyright: `Copyright © ${new Date().getFullYear()} Yash Prajapati (thatbackendguy)`,
         links: [
           {
-            label: 'Blogs',
-            href: '/blog',
+            title: 'Docs',
+            items: [
+              {
+                label: 'Projects',
+                to: '/category/projects',
+              },
+              {
+                label: 'Tutorials',
+                to: '/category/tutorials',
+              },
+            ],
           },
           {
-            label: 'GitHub',
-            href: 'https://github.com/thatbackendguy/',
+            title: 'Socials',
+            items: [
+              {
+                html: `<a href="https://www.instagram.com/thatbackendguy/"><i class="fa fa-instagram navbar_icon"></i></a>`,
+              },
+              {
+                html: `<a href="https://github.com/thatbackendguy/"><i class="fa fa-github navbar_icon"></i></a>`,
+              },
+              {
+                html: `<a href="https://twitter.com/thatbackendguyy"><i class="fa fa-twitter navbar_icon"></i></a>`,
+              },
+            ],
           },
-          {
-            label: 'Instagram',
-            href: 'https://instagram.com/thatbackendguy/',
-          },
-          {
-            label: 'Twitter',
-            href: 'https://twitter.com/thatbackendguyy',
-          },
-          {
-            label: 'Contact',
-            href: 'mailto:yashpra1010@gmail.com',
-          },
-
         ],
       },
       prism: {
