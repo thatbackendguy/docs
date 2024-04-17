@@ -1,0 +1,80 @@
+# Install MongoDB on CentOS Stream 9/RHEL 9
+## Update System Packages
+
+To ensure your system has the latest updates, run the following command to update all installed packages:
+
+```
+sudo yum update -y
+```
+
+## Add MongoDB Repository
+Create a `mongo.repo` file in the `/etc/yum.repos.d/` directory to add the MongoDB repository. Use your preferred text editor (e.g., `gedit`) to create and edit the file:
+```
+sudo gedit /etc/yum.repos.d/mongodb-org-6.0.repo
+```
+Add the following content to the file:
+```
+[mongodb-org-6.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/8/mongodb-org/6.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
+```
+
+This configuration allows `yum` to fetch MongoDB packages from the specified repository.
+
+## Install MongoDB Database
+
+Install MongoDB on your system using the following command:
+
+```
+sudo yum install -y mongodb-org
+```
+This command installs the MongoDB package along with its dependencies.
+
+## Start MongoDB Service
+To start the MongoDB service, execute the following command:
+```
+sudo systemctl start mongod
+```
+If there are any errors, it's recommended to reload the systemd daemon to ensure proper service management:
+```
+sudo systemctl daemon-reload
+```
+## Enable MongoDB Service
+Enable the MongoDB service to start automatically on system boot:
+```
+sudo systemctl enable mongod
+```
+This ensures that MongoDB starts up whenever the system boots up.
+
+## Access MongoDB Shell
+To access the MongoDB shell and interact with the MongoDB database, simply run:
+```
+mongosh
+```
+This opens the MongoDB shell where you can execute commands and queries.
+
+## Uninstall MongoDB Database
+If you need to uninstall MongoDB, follow these steps:
+Stop the MongoDB service:
+```
+sudo systemctl stop mongod
+```
+Remove MongoDB packages:
+```
+sudo yum erase $(rpm -qa | grep mongodb-org)
+```
+
+This command removes all MongoDB-related packages from your system.
+Remove MongoDB log files:
+```
+sudo rm -rf /var/log/mongodb
+```
+Remove MongoDB data:
+```
+sudo rm -rf /var/lib/mongo
+```
+
+These commands remove MongoDB log files and data directories to clean up your system completely from MongoDB-related files.

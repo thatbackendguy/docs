@@ -1,0 +1,31 @@
+# Install Google Cloud CLI on Ubuntu
+
+## Before you begin
+Before you install the gcloud CLI, make sure that your operating system meets the following requirements:
+```
+sudo apt-get install apt-transport-https ca-certificates gnupg
+```
+
+## Installation
+1. Add the gcloud CLI distribution URI as a package source. If your distribution supports the signed-by option, run the following command:
+```
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+```
+* If your distribution doesn’t support the signed-by option, run the following command:
+```
+echo "deb https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+```
+
+2. Import the Google Cloud public key. If your distribution’s `apt-key` command supports the `--keyring` argument, run the following command:
+```
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+```
+
+3. Update and install the gcloud CLI:
+```
+sudo apt-get update && sudo apt-get install google-cloud-cli
+```
+## Run GCloud CLI
+```
+gcloud init
+```

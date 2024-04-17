@@ -1,0 +1,62 @@
+# How to SSH from any phone to Linux system?
+## Setting Linux System
+### 1. Install ssh server
+Type the following command in the terminal.
+```
+sudo apt-get install openssh-server openssh-client openssh-sftp-server -y
+```
+
+### 2. Enable the service of `sshd`
+Check the status of the service and enable it and again check if the service has started or not.
+```
+service ssh status
+```
+* If the service is not started, run this
+```
+service ssh start
+```
+To enable the service, so that it starts on every reboot
+```
+service ssh enable
+```
+
+### 3. Edit the `sshd_config` file
+Using root privileges, edit the `sshd_config`
+```
+sudo gedit /etc/ssh/sshd_config
+```
+
+In the file, look for
+```
+# PermitRootLogin prohibit-password
+```
+After this line, add the following line to enable root login.
+```
+PermitRootLogin yes
+```
+Setup for linux system is done. ✅
+
+## Setting Android Phone
+### 1. Installing `Termius`
+* Install `Termius` from [Play Store](https://play.google.com/store/apps/details?id=com.server.auditor.ssh.client&hl=en_IN&gl=US&pli=1) or [AppStore](https://apps.apple.com/us/app/termius-terminal-ssh-client/id549039908).
+* Open `Termius`.
+
+### 2. Click on `Add ➕`
+
+### 3. Click on `New Host`
+
+### 4. Adding the details of the host (Linux System)
+Alias: `Nickname of your system`
+Hostname or IP Address: `IP of your system`
+
+> Use ifconfig command on linux for getting IP address.
+
+Port: 22 (default)
+Username: `username`
+Password: `password`
+
+Now click ✅, And then connect to the system.
+
+## Congratulations! 🎉
+You will be successfully logged in into Linux System using `ssh` ✅
+<img src="https://media1.tenor.com/m/lgbV8r0HR8cAAAAC/90s-reactions.gif" width="40%"></img>
