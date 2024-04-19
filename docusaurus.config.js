@@ -96,7 +96,7 @@ const config = {
         ],
       },
       footer: {
-        copyright: `Copyright © ${new Date().getFullYear()} Yash Prajapati (thatbackendguy)`,
+        copyright: `Copyright © ${new Date().getFullYear()} Yash Prajapati (@thatbackendguy)`,
         links: [
           {
             title: 'Docs',
