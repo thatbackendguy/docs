@@ -1,5 +1,9 @@
 @import 'font-awesome/css/font-awesome.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
+* {
+  font-family: "Sora";
+}
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
@@ -50,3 +54,4 @@ html[data-theme='dark'] .navbar__github {
 .footer__item {
   margin-right: 1vh !important;
 }
+
