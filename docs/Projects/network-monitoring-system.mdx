@@ -12,6 +12,8 @@ The Network Monitoring System is a robust application designed to monitor and vi
 ### Backend
 * **Java**: Powering the backend logic for robust functionality.
 * **Vert.x Core & Vert.x Web**: Enabling reactive, high-performance web handling.
+* **Golang**: Plugin engine for fetching network devices (Routers, Switches & Firewalls) data with high concurrency.
+* **ZeroMQ**: Asyncronous messaging queue for non-blocking data transfer between Java backend and Golang plugin engine.
 * **Logger**: Ensuring comprehensive event logging for system monitoring.
 
 ### Frontend
@@ -36,28 +38,10 @@ The Network Monitoring System is a robust application designed to monitor and vi
 ![NMS 4](../../static/project_assests/nms/nms4.png)
 
 ## Backend APIs
-| Sr. No.|Description| Request Type  | Endpoint  |
-|---|---|---|---|
-|1|Register Device| POST  | `/register-device`  |
-|2|Start Polling| GET  |  `/start-polling` |
-|3|Get System Metrics| GET  | `/get-data/:ipAddress` |
-|4|Get List of IP Address| GET  | `/get-ip-address` |
-|5|Get Alerts| GET  | `/get-alerts/:ipAddress` |
-|6|Clear Alerts| DELETE  | `/clear-alerts/:ipAddress` |
-
-* **Register Device**: Add body parameter as follows
-    ```jsx
-    {
-        "username": "yash",
-        "password": 1234,
-        "ip.address": "127.0.0.1",
-        "device.type": "linux"
-    }
-    ```
-> Change values according your system configuration. To check IP address, run this following command:
-```jsx
-ifconfig | grep broadcast | awk {'print $2'}
-```
+1. Backend + Frontend: [Click here](https://github.com/thatbackendguy/network-monitoring-system/blob/main/README.md)
+2. Backend (v6.1) + Plugin Engine (Golang): [Click here](https://github.com/thatbackendguy/nms-lite/blob/v6.1/NMS-Backend.postman_collection.json)
 
 ## GitHub Repo
 <a href="https://github.com/thatbackendguy/network-monitoring-system"><img src="https://opengraph.githubassets.com/42bc0c1d6fa18b25576ead8f49432f0ca77199d85e517dd6b2366d9d4e4ab955/thatbackendguy/network-monitoring-system" width="50%"/></a>
+
+<a href="https://github.com/thatbackendguy/nms-lite/tree/v6.1"><img src="https://opengraph.githubassets.com/42bc0c1d6fa18b25576ead8f49432f0ca77199d85e517dd6b2366d9d4e4ab955/thatbackendguy/nms-lite/tree/v6.1" width="50%"/></a>
