@@ -1,0 +1,51 @@
+# Install Miniconda3 on Any Linux System
+
+Miniconda is a lightweight distribution of the popular Anaconda Python environment. It provides essential tools for managing packages and environments, making it an ideal choice for developers and data scientists who need a streamlined solution. This guide will walk you through the steps to install Miniconda3 on any Linux system.
+
+## Step 1: Download and Install Miniconda3
+
+Follow the steps below to install Miniconda3 on your Linux system based on your system architecture.
+
+### For Linux 64-bit Systems (x86_64)
+
+Run the following commands to download and install Miniconda3:
+```shell
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm ~/miniconda3/miniconda.sh
+```
+## Step 2: Activate Miniconda3
+
+Once the installation is complete, you'll need to activate Miniconda3. Close and reopen your terminal, or refresh it with the following command:
+```shell
+source ~/miniconda3/bin/activate
+```
+## Step 3: Initialize Conda
+
+To ensure that Conda is available across all your shell environments, run the following command:
+```shell
+conda init --all
+```
+This command configures Conda to automatically activate in various shells such as Bash, Zsh, and Fish.
+
+## Step 4: Verify Installation
+
+To check if Miniconda3 has been installed successfully, run:
+```shell
+conda --version
+```
+You should see the Conda version printed, indicating a successful installation.
+
+## Step 5: Create new virtual environment
+Now let's see how we can create new python virtual environment using conda with python 3.12.
+```shell
+conda create -n venv python=3.12
+```
+> You can change `venv` to any name required.
+
+# Conclusion
+
+Installing Miniconda3 on a Linux system is a straightforward process that involves downloading the appropriate installer, running the installation script, and setting up the environment. Once installed, you can efficiently manage Python packages and environments with ease.
+
+Now that you've installed Miniconda3, you're ready to explore the vast ecosystem of Python packages and tools available through Conda!
