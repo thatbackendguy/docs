@@ -41,7 +41,13 @@ const config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+      },
+    },
   },
+
 
   presets: [
     [
@@ -65,25 +71,6 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // algolia: {
-      //   // The application ID provided by Algolia
-      //   appId: '9NKBXL697I',
-
-      //   // Public API key: it is safe to commit it
-      //   apiKey: '04be2d0208a6cf34a38415c579d2482a',
-
-      //   indexName: 'three-tan',
-
-      //   replaceSearchResultPathname: {
-      //     from: '/docs/', // or as RegExp: /\/docs\//
-      //     to: '/',
-      //   },
-
-      //   // Optional: path for search page that enabled by default (`false` to disable it)
-      //   searchPagePath: 'search',
-
-      // },
-
       navbar: {
         title: 'ThatBackendGuy',
         logo: {
@@ -139,7 +126,7 @@ const config = {
             items: [
               {
                 label: "Mail",
-                href:"mailto:yash@thatbackendguy.com"
+                href: "mailto:yash@thatbackendguy.com"
               },
             ],
           },
