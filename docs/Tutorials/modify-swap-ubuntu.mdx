@@ -1,0 +1,77 @@
+# Change SWAP memory in Linux/Debian
+## Introduction
+To safely increase your swap size on Ubuntu without affecting your existing files, follow the method of creating a new swap file (instead of touching existing partitions). This is safe, easy, and reversible.
+
+Let’s say you want to increase swap from 2 GB to 4 GB.  
+  
+## 1️⃣ Step 1: Check current swap
+
+```bash
+sudo swapon --show
+free -h
+```
+
+## 📦 Step 2: Turn off current swap (temporarily)
+
+```bash
+sudo swapoff -a
+```
+
+## 🧹 Step 3: Remove old swap file (only if you're replacing `/swapfile`)
+> Skip this if you plan to keep the old one.
+
+```bash
+sudo rm /swapfile
+```
+
+## 🧱 Step 4: Create a new swap file (e.g., 4 GB)
+Here instead of `4G` you can change the size, For e.g.: `6G`, `8G`, `16G` and so on.
+```bash
+sudo fallocate -l 4G /swapfile
+# If fallocate fails (e.g., on some file systems), use:
+# sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+```
+
+## 🔐 Step 5: Set proper permissions
+```bash
+sudo chmod 600 /swapfile
+```
+
+## 🌀 Step 6: Make it swap
+```bash
+sudo mkswap /swapfile
+```
+
+## ✅ Step 7: Enable swap
+```bash
+sudo swapon /swapfile
+```
+
+Verify:
+```bash
+sudo swapon --show
+free -h
+```
+
+## 💾 Step 8: Make it permanent (survives reboots)
+Edit `/etc/fstab`:
+```bash
+sudo nano /etc/fstab
+```
+
+Make sure you have this line:
+```text
+/swapfile none swap sw 0 0
+```
+
+
+# ✅ All Done! Your server now has a bigger swap space.
+
+# 📌 Safety Tips
+* This method doesn't touch existing partitions — so your data is safe.
+* Don’t use a swap file on SSDs heavily unless absolutely needed (wear).
+* Don’t make swap too large (e.g., > 8 GB) unless running memory-heavy apps.
+
+## Congratulations! 🎉
+You have successfully change the size of swap memory in your system. ✅
+<img src="https://media1.tenor.com/m/lgbV8r0HR8cAAAAC/90s-reactions.gif" width="40%"></img>
