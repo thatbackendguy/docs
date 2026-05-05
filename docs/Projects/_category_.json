@@ -1,8 +1,8 @@
 {
     "label": "Projects",
-    "position": 3,
+    "position": 4,
     "link": {
       "type": "generated-index",
-      "description": "Explore my portfolio showcasing a collection of innovative personal projects, highlighting creativity and technical proficiency."
+      "description": "Selected portfolio case studies across machine learning, backend engineering, real-time systems, APIs, and developer tooling."
     }
   }

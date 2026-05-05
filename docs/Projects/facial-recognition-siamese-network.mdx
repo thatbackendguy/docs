@@ -1,25 +1,82 @@
 ---
 slug: facial-recognition-siamese-network
+title: Facial Recognition with Siamese Network
+hide_table_of_contents: true
 ---
-# Facial Recognition using Siamese Network
-Facial Recognition using Siamese Network | Tensorflow
 
-## Introduction
-- Overview of the significant advancements in facial recognition technology.
-- Identification of common applications, including security systems and user authentication.
-- Recognition of the challenge posed by the need for large datasets for effective system operation.
+<main className="caseStudyPage">
+  <section className="caseHero">
+    <p className="portfolioKicker">Computer vision and deep learning</p>
+    <h1>One-Shot Face Recognition</h1>
+    <p className="caseLead">
+      A CNN-based Siamese Network for one-shot facial recognition, trained with contrastive learning and optimized data pipelines using TensorFlow, OpenCV, NumPy, and Matplotlib.
+    </p>
+    <div className="linkList">
+      <a className="button button--primary" href="https://github.com/thatbackendguy/facial-recognition-siamese-network/">GitHub repo</a>
+      <a className="button button--secondary" href="/blog/siamese-network-one-shot-face-recognition">Read technical post</a>
+    </div>
+  </section>
 
-## Model Architecture
-The model architecture consists of Input Layer of shape (105,105,3), 4 2D- convolution layers, 4 Max Pooling layers, L1 siamese distance calc layer, 1 fully connected layer, 1 sigmoid layer and then output layer having single output
+  <section className="metricGrid">
+    <div className="metricCard">
+      <strong>98%</strong>
+      <span>Recognition accuracy achieved in project evaluation.</span>
+    </div>
+    <div className="metricCard">
+      <strong>17%</strong>
+      <span>Reduction in training time through data pipeline optimization.</span>
+    </div>
+    <div className="metricCard">
+      <strong>13,000+</strong>
+      <span>Faces available in the Labeled Faces in the Wild dataset.</span>
+    </div>
+    <div className="metricCard">
+      <strong>One-shot</strong>
+      <span>Designed to compare identity similarity with limited examples.</span>
+    </div>
+  </section>
 
-![Model Architecture](../../static/project_assests/facialrecsiamese/siamese.png)
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Problem</p>
+      <h2>Face recognition often has limited examples per person</h2>
+      <p className="sectionLead">
+        Traditional classification models need many labeled examples per identity. A Siamese Network learns similarity instead, making it useful for verification tasks where only one or a few reference images are available.
+      </p>
+    </div>
+    <div className="caseGrid">
+      <article className="caseCard">
+        <h3>Pairwise learning</h3>
+        <p>The model learns whether two face images belong to the same identity rather than predicting a fixed class label.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Contrastive signal</h3>
+        <p>Positive and negative image pairs help the network learn a distance space where similar faces stay close.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Practical use cases</h3>
+        <p>The approach fits access control, personal device unlocking, camera systems, and lightweight identity verification flows.</p>
+      </article>
+    </div>
+  </section>
 
-## Dataset
-For training & testing of the model we have used Labeled Faces in the Wild, a database of face photographs designed for studying the problem of unconstrained face recognition. The dataset contains more than 13,000 images of faces collected from the web. Each face has been labeled with the name of the person pictured. 1680 of the people pictured have two or more distinct photos in the data set.
-
-## Applications
-- CCTV Cameras
-- Door locking systems
-- Personal devices locks
-
-<a href="https://github.com/thatbackendguy/facial-recognition-siamese-network/"><img src="https://opengraph.githubassets.com/42bc0c1d6fa18b25576ead8f49432f0ca77199d85e517dd6b2366d9d4e4ab955/thatbackendguy/facial-recognition-siamese-network/" width="50%"/></a>
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Model</p>
+      <h2>Architecture</h2>
+      <p className="sectionLead">
+        The model uses an input size of 105 x 105 x 3, convolution and pooling blocks, an L1 distance layer, and a fully connected prediction head with sigmoid output.
+      </p>
+    </div>
+    <img src="/project_assests/facialrecsiamese/siamese.png" alt="Siamese Network architecture" />
+    <div className="techPills">
+      <span>TensorFlow</span>
+      <span>Keras</span>
+      <span>OpenCV</span>
+      <span>NumPy</span>
+      <span>Matplotlib</span>
+      <span>CNN</span>
+      <span>Contrastive learning</span>
+    </div>
+  </section>
+</main>

@@ -1,34 +1,171 @@
 ---
 sidebar_position: 1
 slug: /
+title: Portfolio
+hide_table_of_contents: true
+displayed_sidebar: null
+pagination_next: null
+pagination_prev: null
 ---
 
-# Welcome to ThatBackendGuy's Docs 🚀
+<main className="portfolioPage">
+  <section className="portfolioHero">
+    <div>
+      <p className="portfolioKicker">Data science, ML systems, and backend platforms</p>
+      <h1 className="portfolioTitle">Yash Prajapati</h1>
+      <p className="portfolioLead">
+        I build practical machine learning pipelines, real-time backend systems, and API-first products that turn messy technical problems into reliable software.
+      </p>
+      <div className="portfolioActions">
+        <a className="button button--primary button--lg" href="/category/projects">View projects</a>
+        <a className="button button--secondary button--lg" href="/blog">Read blog</a>
+        <a className="button button--outline button--lg" href="/about-me#contact">Contact me</a>
+      </div>
+      <p className="portfolioAvailability">
+        M.Sc. Data Science student at TUHH, based in Hamburg. Open to working student, internship, and research-driven engineering opportunities.
+      </p>
+    </div>
+    <aside className="portfolioPanel">
+      <div className="portfolioPanelHeader">
+        <strong>Current focus</strong>
+        <span className="portfolioStatus">Available</span>
+      </div>
+      <p>
+        Applied ML, MLOps, computer vision, distributed backend services, and developer tools.
+      </p>
+      <div className="techPills">
+        <span>Python</span>
+        <span>TensorFlow</span>
+        <span>PyTorch</span>
+        <span>Java</span>
+        <span>Golang</span>
+        <span>Kafka</span>
+        <span>Docker</span>
+        <span>AWS</span>
+      </div>
+    </aside>
+  </section>
 
-Hello, coding enthusiasts and tech-savvy individuals! 👋 I'm thrilled to have you here on my personal API documentation website. This platform is a culmination of my passion for coding, exploration, and a desire to share knowledge with like-minded individuals. 🤝 It's like the "Central Perk" for developers! ☕️
+  <section className="portfolioMetricGrid" aria-label="Selected outcomes">
+    <div className="portfolioMetric">
+      <strong>98%</strong>
+      <span>Accuracy on a Siamese Network facial recognition project.</span>
+    </div>
+    <div className="portfolioMetric">
+      <strong>1,000+</strong>
+      <span>Devices supported in a real-time Network Monitoring System.</span>
+    </div>
+    <div className="portfolioMetric">
+      <strong>18%</strong>
+      <span>Model accuracy improvement through feature engineering.</span>
+    </div>
+    <div className="portfolioMetric">
+      <strong>28%</strong>
+      <span>Latency reduction using async event-driven messaging.</span>
+    </div>
+  </section>
 
-<div>
-<img src={require("../static/img/docusaurus.png").default} width="33%"></img>
-<img src="https://gifsec.com/wp-content/uploads/2022/09/welcome-gif-33.gif"></img>
-</div>
+  <section className="portfolioSection">
+    <div className="portfolioSectionHeader">
+      <p className="sectionKicker">Featured work</p>
+      <h2>Portfolio case studies</h2>
+      <p className="sectionLead">
+        These projects show the range I enjoy most: production-minded data science, high-throughput backend services, and tools that make technical workflows easier.
+      </p>
+    </div>
+    <div className="portfolioGrid">
+      <article className="portfolioCard">
+        <img src="/project_assests/nms/nms1.png" alt="Network Monitoring System dashboard" />
+        <h3>Network Monitoring System</h3>
+        <p>
+          Real-time infrastructure monitoring with Vert.x, Go plugins, ZeroMQ, Kafka, SQL storage, and a React dashboard.
+        </p>
+        <a href="/Projects/network-monitoring-system">Read case study</a>
+        <div className="portfolioTagList">
+          <span>Java</span>
+          <span>Go</span>
+          <span>Kafka</span>
+          <span>React</span>
+        </div>
+      </article>
+      <article className="portfolioCard">
+        <img src="/project_assests/codecraftpro/Picture1.png" alt="CodeCraftPro collaborative coding workspace" />
+        <h3>CodeCraftPro</h3>
+        <p>
+          Collaborative coding platform with real-time editing, workspace management, authentication, and Socket.IO synchronization.
+        </p>
+        <a href="/Projects/code-craft-pro">Read case study</a>
+        <div className="portfolioTagList">
+          <span>Node.js</span>
+          <span>React</span>
+          <span>Socket.IO</span>
+          <span>MongoDB</span>
+        </div>
+      </article>
+      <article className="portfolioCard">
+        <img src="/project_assests/facialrecsiamese/siamese.png" alt="Siamese Network model architecture" />
+        <h3>One-Shot Face Recognition</h3>
+        <p>
+          CNN-based Siamese Network for facial recognition using contrastive learning, TensorFlow, OpenCV, and data augmentation.
+        </p>
+        <a href="/Projects/facial-recognition-siamese-network">Read case study</a>
+        <div className="portfolioTagList">
+          <span>TensorFlow</span>
+          <span>OpenCV</span>
+          <span>Deep Learning</span>
+        </div>
+      </article>
+    </div>
+  </section>
 
-## About This Site
+  <section className="portfolioSection">
+    <div className="portfolioSectionHeader">
+      <p className="sectionKicker">Experience</p>
+      <h2>Engineering with measurable outcomes</h2>
+      <p className="sectionLead">
+        My work spans ML pipelines, network monitoring platforms, REST APIs, and collaborative software development across research, public-sector, and product environments.
+      </p>
+    </div>
+    <div className="timelineGrid">
+      <article className="timelineItem">
+        <h3>BISAG-N</h3>
+        <p>Software Developer - Data Science and ML. Built ML pipelines, tracked experiments with MLflow, and improved model reproducibility across geospatial datasets.</p>
+      </article>
+      <article className="timelineItem">
+        <h3>Motadata</h3>
+        <p>Software Developer Intern. Built real-time NMS components with Java, Go, SQL databases, and async messaging for monitoring infrastructure at scale.</p>
+      </article>
+      <article className="timelineItem">
+        <h3>tecrave inc.</h3>
+        <p>Software Development Intern. Built a Django CRM portal, optimized MySQL data access, and documented APIs with Swagger/OpenAPI.</p>
+      </article>
+    </div>
+  </section>
 
-This site is a comprehensive collection of documentation for various personal projects I've undertaken over the years. Each project is unique, tackling different challenges and showcasing my skills in various programming languages and technologies. Whether you're a seasoned developer or just starting your coding journey, you'll find valuable insights and resources here. 💻 It's legen... wait for it... dary! 🤯
-
-## Explore the Projects
-
-Navigate through the different sections to discover a diverse range of projects, each with its own set of APIs and accompanying documentation. From web applications to data analysis tools, from game development to automation scripts, you'll find a treasure trove of information to quench your thirst for knowledge. 🌐 It's like a coding "Suit Up"! 👔
-
-<img src="https://media.licdn.com/dms/image/C4E22AQG0j7w8TZroVw/feedshare-shrink_2048_1536/0/1650063608267?e=2147483647&v=beta&t=IaRHVAnoIubZt6upNWab2IZ1SY8f6Ie-GQ8gpT05cbw" width="40%"></img>
-
-## Join the Journey
-
-I invite you to embark on this exciting journey with me. 🚀 Whether you're here to learn, collaborate, or simply explore, I hope this site will serve as a valuable resource and a catalyst for your own growth and development. 🌱 It's going to be... wait for it... legendary! 🙌
-
-Feel free to reach out with any questions, suggestions, or feedback. I'm always eager to learn and improve. 👂 Just don't ask, "How YOU doin'?" 😉
-
-
-<img src="https://media1.tenor.com/m/CR1Db0YzUwwAAAAd/joey-friends.gif" width="40%"></img>
-
-## Happy coding! 💻🎉
+  <section className="portfolioSection">
+    <div className="portfolioSectionHeader">
+      <p className="sectionKicker">Writing</p>
+      <h2>Modern engineering notes</h2>
+      <p className="sectionLead">
+        I use the blog to explain how I approach systems, ML projects, and developer tools.
+      </p>
+    </div>
+    <div className="blogGrid">
+      <article className="blogCard">
+        <h3>Real-time monitoring systems</h3>
+        <p>How Vert.x, Go, Kafka, and ZeroMQ fit together in a scalable monitoring platform.</p>
+        <a href="/blog/building-real-time-network-monitoring-system">Read post</a>
+      </article>
+      <article className="blogCard">
+        <h3>Siamese Networks</h3>
+        <p>A practical walkthrough of one-shot facial recognition and contrastive learning.</p>
+        <a href="/blog/siamese-network-one-shot-face-recognition">Read post</a>
+      </article>
+      <article className="blogCard">
+        <h3>MLOps for applied ML</h3>
+        <p>Lessons from reproducible model training, validation, and experiment tracking.</p>
+        <a href="/blog/mlops-lessons-geospatial-machine-learning">Read post</a>
+      </article>
+    </div>
+  </section>
+</main>

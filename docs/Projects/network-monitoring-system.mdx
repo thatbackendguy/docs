@@ -1,47 +1,117 @@
 ---
 slug: network-monitoring-system
+title: Network Monitoring System
+hide_table_of_contents: true
 ---
-# Network Monitoring System
 
-The Network Monitoring System is a robust application designed to monitor and visualize real-time system metrics for network devices. Utilizing a modern tech stack, it offers efficient backend processing, dynamic frontend interaction, and seamless database management.
+<main className="caseStudyPage">
+  <section className="caseHero">
+    <p className="portfolioKicker">Realtime infrastructure monitoring</p>
+    <h1>Network Monitoring System</h1>
+    <p className="caseLead">
+      A scalable monitoring platform for network devices, combining Vert.x services, a concurrent Go plugin engine, async messaging, SQL persistence, and a React dashboard for live operational visibility.
+    </p>
+    <div className="linkList">
+      <a className="button button--primary" href="https://github.com/thatbackendguy/network-monitoring-system">GitHub repo</a>
+      <a className="button button--secondary" href="https://github.com/thatbackendguy/nms-lite/tree/v6.1">NMS Lite v6.1</a>
+      <a className="button button--outline" href="/blog/building-real-time-network-monitoring-system">Read technical post</a>
+    </div>
+  </section>
 
-## Demonstration
-<iframe width="560" height="315" src="https://www.youtube.com/embed/YOM6VJnKgvc?si=iU8k1en_UZhdSkLz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <section className="metricGrid">
+    <div className="metricCard">
+      <strong>1,000+</strong>
+      <span>Devices supported for real-time monitoring.</span>
+    </div>
+    <div className="metricCard">
+      <strong>42%</strong>
+      <span>Increase in monitoring capacity through scalable backend design.</span>
+    </div>
+    <div className="metricCard">
+      <strong>28%</strong>
+      <span>Latency reduction using async event-driven communication.</span>
+    </div>
+    <div className="metricCard">
+      <strong>92%+</strong>
+      <span>Sprint commitments delivered on time during internship work.</span>
+    </div>
+  </section>
 
-## Technologies Used
-### Backend
-* **Java**: Powering the backend logic for robust functionality.
-* **Vert.x Core & Vert.x Web**: Enabling reactive, high-performance web handling.
-* **Golang**: Plugin engine for fetching network devices (Routers, Switches & Firewalls) data with high concurrency.
-* **ZeroMQ**: Asyncronous messaging queue for non-blocking data transfer between Java backend and Golang plugin engine.
-* **Logger**: Ensuring comprehensive event logging for system monitoring.
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Problem</p>
+      <h2>Monitoring platforms need reliable data flow under constant load</h2>
+      <p className="sectionLead">
+        Network monitoring requires frequent metric collection, device-specific polling logic, reliable persistence, and interfaces that make live system health easy to scan.
+      </p>
+    </div>
+    <div className="caseGrid">
+      <article className="caseCard">
+        <h3>Device metrics</h3>
+        <p>CPU, memory, and operational metrics are collected for routers, switches, firewalls, and related network devices.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Plugin engine</h3>
+        <p>A Go-based plugin engine handles high-concurrency device communication and isolates device-specific collection behavior.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Operations dashboard</h3>
+        <p>React, Tailwind CSS, and ApexCharts provide live and historical views for metric analysis and alert visibility.</p>
+      </article>
+    </div>
+  </section>
 
-### Frontend
-* **React.js**: Driving the frontend with dynamic UI components.
-* **Tailwind CSS**: Styling the interface for a sleek, responsive design.
-* **ApexCharts**: Visualizing data with interactive and engaging chart displays.
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Architecture</p>
+      <h2>Event-driven services built for throughput</h2>
+    </div>
+    <div className="caseGrid">
+      <article className="caseCard">
+        <h3>Java backend</h3>
+        <p>Vert.x Core and Vert.x Web power non-blocking backend APIs and service orchestration.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Async messaging</h3>
+        <p>ZeroMQ and Kafka move device data and events between services without blocking the collection pipeline.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Storage</h3>
+        <p>MySQL and PostgreSQL support reliable metric, device, and alert persistence for operational workflows.</p>
+      </article>
+    </div>
+    <div className="techPills">
+      <span>Java</span>
+      <span>Vert.x</span>
+      <span>Golang</span>
+      <span>ZeroMQ</span>
+      <span>Kafka</span>
+      <span>React</span>
+      <span>Tailwind CSS</span>
+      <span>ApexCharts</span>
+      <span>MySQL</span>
+      <span>PostgreSQL</span>
+    </div>
+  </section>
 
-## Database
-* **MySQL**: Managing and storing system metrics data & alerts generated efficiently and securely.
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Demo</p>
+      <h2>Walkthrough</h2>
+    </div>
+    <iframe width="100%" height="420" src="https://www.youtube.com/embed/YOM6VJnKgvc?si=iU8k1en_UZhdSkLz" title="Network Monitoring System demonstration" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+  </section>
 
-## Features
-* Supports monitoring upto **1,000** devices.
-* Real-time monitoring of CPU, memory, and other vital system metrics.
-* Interactive charting for analyzing historical data trends.
-* User-friendly interface, optimized for usability.
-* Scalable backend architecture ensures seamless performance under varying loads.
-
-## Screenshots
-![NMS 1](../../static/project_assests/nms/nms1.png)
-![NMS 2](../../static/project_assests/nms/nms2.png)
-![NMS 3](../../static/project_assests/nms/nms3.png)
-![NMS 4](../../static/project_assests/nms/nms4.png)
-
-## Backend APIs
-1. Backend + Frontend: [Click here](https://github.com/thatbackendguy/network-monitoring-system/blob/main/README.md)
-2. Backend (v6.1) + Plugin Engine (Golang): [Click here](https://github.com/thatbackendguy/nms-lite/blob/v6.1/NMS-Backend.postman_collection.json)
-
-## GitHub Repo
-<a href="https://github.com/thatbackendguy/network-monitoring-system"><img src="https://opengraph.githubassets.com/42bc0c1d6fa18b25576ead8f49432f0ca77199d85e517dd6b2366d9d4e4ab955/thatbackendguy/network-monitoring-system" width="50%"/></a>
-
-<a href="https://github.com/thatbackendguy/nms-lite/tree/v6.1"><img src="https://opengraph.githubassets.com/42bc0c1d6fa18b25576ead8f49432f0ca77199d85e517dd6b2366d9d4e4ab955/thatbackendguy/nms-lite/tree/v6.1" width="50%"/></a>
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Screenshots</p>
+      <h2>Monitoring interface</h2>
+    </div>
+    <div className="caseImageGrid">
+      <img src="/project_assests/nms/nms1.png" alt="Network Monitoring System dashboard 1" />
+      <img src="/project_assests/nms/nms2.png" alt="Network Monitoring System dashboard 2" />
+      <img src="/project_assests/nms/nms3.png" alt="Network Monitoring System dashboard 3" />
+      <img src="/project_assests/nms/nms4.png" alt="Network Monitoring System dashboard 4" />
+    </div>
+  </section>
+</main>

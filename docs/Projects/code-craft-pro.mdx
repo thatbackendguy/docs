@@ -1,42 +1,105 @@
 ---
 slug: code-craft-pro
+title: CodeCraftPro
+hide_table_of_contents: true
 ---
 
-# Code Craft Pro.
+<main className="caseStudyPage">
+  <section className="caseHero">
+    <p className="portfolioKicker">Realtime developer tooling</p>
+    <h1>CodeCraftPro</h1>
+    <p className="caseLead">
+      A collaborative coding environment for teams, built with Node.js, React, Socket.IO, Express, and MongoDB. It supports shared workspaces, token-based authentication, and low-latency multi-user editing.
+    </p>
+    <div className="linkList">
+      <a className="button button--primary" href="https://github.com/thatbackendguy/code-craft-pro">GitHub repo</a>
+      <a className="button button--secondary" href="/blog/designing-collaborative-code-editor">Read technical post</a>
+    </div>
+  </section>
 
-CodeCraftPro is a collaborative coding platform powered by Node.js, React.js, and Socket.IO. It enables real-time code editing and project management for software development teams. With features like user authentication, workspace management, and file sharing, it streamlines the coding process, allowing teams to work together seamlessly. Boost productivity and streamline collaboration with CodeCraftPro.
+  <section className="metricGrid">
+    <div className="metricCard">
+      <strong>&lt;100 ms</strong>
+      <span>Target sync latency for simultaneous collaborative sessions.</span>
+    </div>
+    <div className="metricCard">
+      <strong>40%</strong>
+      <span>Improvement in user session reliability through workspace and auth changes.</span>
+    </div>
+    <div className="metricCard">
+      <strong>0</strong>
+      <span>Unauthorized access incidents after token-based access hardening.</span>
+    </div>
+    <div className="metricCard">
+      <strong>Full stack</strong>
+      <span>Frontend, backend, database, realtime sync, and API testing.</span>
+    </div>
+  </section>
 
-## Tech-stack
-* Node.js
-* React.js
-* Socket.IO
-* Socket.IO-client
-* Mongoose
-* Express
-* MongoDB
-* Postman
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Problem</p>
+      <h2>Collaborative coding needs fast synchronization and clear access control</h2>
+      <p className="sectionLead">
+        Shared coding tools have to feel instant while still protecting workspaces, files, and user sessions. CodeCraftPro explores that balance through a practical full-stack implementation.
+      </p>
+    </div>
+    <div className="caseGrid">
+      <article className="caseCard">
+        <h3>Realtime editing</h3>
+        <p>Socket.IO keeps workspace changes synchronized across active collaborators with event-based updates.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Workspace management</h3>
+        <p>Users can create and manage project workspaces, keeping code sessions organized around team workflows.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Secure sessions</h3>
+        <p>Authentication and token-based checks reduce accidental access issues while keeping collaboration smooth.</p>
+      </article>
+    </div>
+  </section>
 
-> Recommended to use Node v20.0 or higher
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Architecture</p>
+      <h2>Stack and responsibilities</h2>
+    </div>
+    <div className="caseGrid">
+      <article className="caseCard">
+        <h3>Frontend</h3>
+        <p>React.js handles the workspace UI, session views, file interactions, and realtime state updates.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Backend</h3>
+        <p>Node.js and Express expose the core APIs for authentication, workspace management, and project operations.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Data and sync</h3>
+        <p>MongoDB stores user and workspace data while Socket.IO powers realtime collaboration events.</p>
+      </article>
+    </div>
+    <div className="techPills">
+      <span>Node.js</span>
+      <span>React.js</span>
+      <span>Express</span>
+      <span>Socket.IO</span>
+      <span>Mongoose</span>
+      <span>MongoDB</span>
+      <span>Postman</span>
+    </div>
+  </section>
 
-## Project Setup & Backend APIs
-Link: https://github.com/thatbackendguy/code-craft-pro
-
-## Screenshots
-![codecraftpro 1](../../static/project_assests/codecraftpro/Picture1.png)
-![codecraftpro 2](../../static/project_assests/codecraftpro/Picture2.png)
-![codecraftpro 3](../../static/project_assests/codecraftpro/Picture3.png)
-![codecraftpro 4](../../static/project_assests/codecraftpro/Picture4.png)
-![codecraftpro 5](../../static/project_assests/codecraftpro/Picture5.png)
-![codecraftpro 6](../../static/project_assests/codecraftpro/Picture6.png)
-![codecraftpro 7](../../static/project_assests/codecraftpro/Picture7.png)
-![codecraftpro 8](../../static/project_assests/codecraftpro/Picture8.png)
-![codecraftpro 9](../../static/project_assests/codecraftpro/Picture9.png)
-![codecraftpro 10](../../static/project_assests/codecraftpro/Picture10.png)
-![codecraftpro 11](../../static/project_assests/codecraftpro/Picture11.png)
-![codecraftpro 12](../../static/project_assests/codecraftpro/Picture12.png)
-![codecraftpro 13](../../static/project_assests/codecraftpro/Picture13.png)
-![codecraftpro 14](../../static/project_assests/codecraftpro/Picture14.png)
-
-
-## GitHub Repo
-<a href="https://github.com/thatbackendguy/code-craft-pro"><img src="https://opengraph.githubassets.com/42bc0c1d6fa18b25576ead8f49432f0ca77199d85e517dd6b2366d9d4e4ab955/thatbackendguy/code-craft-pro" width="50%"/></a>
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Screenshots</p>
+      <h2>Product surface</h2>
+    </div>
+    <div className="caseImageGrid">
+      <img src="/project_assests/codecraftpro/Picture1.png" alt="CodeCraftPro screenshot 1" />
+      <img src="/project_assests/codecraftpro/Picture2.png" alt="CodeCraftPro screenshot 2" />
+      <img src="/project_assests/codecraftpro/Picture3.png" alt="CodeCraftPro screenshot 3" />
+      <img src="/project_assests/codecraftpro/Picture4.png" alt="CodeCraftPro screenshot 4" />
+    </div>
+  </section>
+</main>

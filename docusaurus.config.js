@@ -17,8 +17,8 @@ const config = {
       "data-ad-client": "ca-pub-2300341792953804",
     }
   ],
-  title: 'ThatBackendGuy',
-  tagline: 'Backend is fun ❤️',
+  title: 'Yash Prajapati',
+  tagline: 'Data Scientist and Backend Engineer',
   favicon: 'img/favicon.ico',
   themes: ['@docusaurus/theme-live-codeblock'],
   // Set the production url of your site here
@@ -33,7 +33,11 @@ const config = {
   projectName: 'thatbackendguy', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -72,16 +76,25 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'ThatBackendGuy',
+        title: 'Yash Prajapati',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Yash Prajapati logo',
           src: 'img/logo.svg',
         },
         items: [
-          { to: '/category/tutorials', label: 'Tutorials', position: 'left' },
-          { to: '/blog', label: 'Blog', position: 'right' },
+          { to: '/', label: 'Home', position: 'left' },
           { to: '/category/projects', label: 'Projects', position: 'left' },
-          { to: '/about-me', label: 'About Me', position: 'right' },
+          { to: '/experience', label: 'Experience', position: 'left' },
+          { to: '/blog', label: 'Blog', position: 'left' },
+          { to: '/category/tutorials', label: 'Tutorials', position: 'left' },
+          { to: '/about-me', label: 'About', position: 'right' },
+          {
+            href: 'https://www.linkedin.com/in/yashpra1010/',
+            'aria-label': 'LinkedIn',
+            className: 'navbar__icon navbar__linkedin',
+            position: 'right',
+            html: '<i class="fa fa-linkedin"></i>',
+          },
           {
             href: 'https://github.com/thatbackendguy/',
             'aria-label': 'GitHub',
@@ -95,11 +108,19 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Yash Prajapati (@thatbackendguy)`,
         links: [
           {
-            title: 'Docs',
+            title: 'Portfolio',
             items: [
+              {
+                label: 'Home',
+                to: '/',
+              },
               {
                 label: 'Projects',
                 to: '/category/projects',
+              },
+              {
+                label: 'Experience',
+                to: '/experience',
               },
               {
                 label: 'Tutorials',
@@ -125,8 +146,12 @@ const config = {
             title: 'Contact Me',
             items: [
               {
-                label: "Mail",
+                label: "Email",
                 href: "mailto:yash@thatbackendguy.com"
+              },
+              {
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/in/yashpra1010/"
               },
             ],
           },
