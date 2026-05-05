@@ -1,95 +1,189 @@
 ---
 slug: image-organizer
-title: Image Organizer
+title: Chronify
 hide_table_of_contents: true
 ---
 
 <main className="caseStudyPage">
   <section className="caseHero">
-    <p className="portfolioKicker">Go command-line tooling</p>
-    <h1>Image Organizer</h1>
+    <p className="portfolioKicker">Go command-line media tooling</p>
+    <h1>Chronify</h1>
     <p className="caseLead">
-      A fast terminal utility that organizes image files into year-based folders by reading dates from filenames. It is built in Go, uses goroutines for concurrent file processing, and runs fully offline.
+      A terminal-based photo and video organizer for large media libraries. Chronify scans folders recursively and organizes files into year/month folders using a cautious, dry-run-first workflow.
     </p>
-    <div className="linkList">
-      <a className="button button--primary" href="https://github.com/thatbackendguy/organizer">GitHub repo</a>
-      <a className="button button--secondary" href="https://github.com/thatbackendguy/organizer/releases">Downloads</a>
+  </section>
+
+  <section className="metricGrid">
+    <div className="metricCard">
+      <strong>YYYY/MM</strong>
+      <span>Organizes photos and videos into predictable year/month folders.</span>
+    </div>
+    <div className="metricCard">
+      <strong>Dry-run</strong>
+      <span>Default behavior is preview-only, with CSV manifests for review.</span>
+    </div>
+    <div className="metricCard">
+      <strong>Metadata</strong>
+      <span>Prioritizes embedded and external metadata before filename dates.</span>
+    </div>
+    <div className="metricCard">
+      <strong>Safe moves</strong>
+      <span>Falls back to copy-and-delete when moving files across drives.</span>
     </div>
   </section>
 
   <section className="caseSection">
     <div className="caseHeader">
       <p className="sectionKicker">Problem</p>
-      <h2>Photo folders get messy fast</h2>
+      <h2>Large media libraries need cautious migration</h2>
       <p className="sectionLead">
-        Many personal photo archives contain mixed filenames from phones, cameras, exports, and messaging apps. This tool extracts likely years from filename patterns and organizes files without needing a database or cloud service.
+        Photo and video collections often live across laptops, external drives, camera dumps, phone exports, screenshots, and chat app folders. Chronify is designed for organizing those collections without loading media contents into memory or forcing risky first-run moves.
       </p>
     </div>
     <div className="caseGrid">
       <article className="caseCard">
-        <h3>Filename parsing</h3>
-        <p>Smart regex patterns detect years from common formats such as <code>IMG_20230404_223211.jpg</code>, <code>2020-01-01.png</code>, and burst image names.</p>
+        <h3>Recursive scanning</h3>
+        <p>Chronify scans nested folders and supports large collections without reading full media contents into memory.</p>
       </article>
       <article className="caseCard">
-        <h3>Preview first</h3>
-        <p>Preview mode simulates the folder organization before files are moved, reducing the risk of unwanted changes.</p>
+        <h3>Photo and video support</h3>
+        <p>It supports common image, RAW, HEIC/HEIF, and video formats, making it suitable for mixed media libraries.</p>
       </article>
       <article className="caseCard">
-        <h3>Offline and portable</h3>
-        <p>The compiled binaries run on Windows, macOS, and Linux without external dependencies.</p>
+        <h3>Manifest-first workflow</h3>
+        <p>Every dry-run and apply run can produce a CSV manifest so the migration can be inspected and audited.</p>
       </article>
     </div>
     <div className="techPills">
       <span>Go</span>
       <span>CLI</span>
-      <span>Regex</span>
-      <span>Concurrency</span>
-      <span>Cross-platform binaries</span>
+      <span>Recursive scan</span>
+      <span>Metadata</span>
+      <span>CSV manifest</span>
+      <span>External drives</span>
     </div>
   </section>
 
   <section className="caseSection">
     <div className="caseHeader">
-      <p className="sectionKicker">Usage</p>
-      <h2>Example session</h2>
+      <p className="sectionKicker">Output</p>
+      <h2>Library structure</h2>
     </div>
-
-```bash
-./v1.0-io-linux-x64
-```
 
 ```text
-Choose option:
-1. Preview organization
-2. Organize files
-
-Enter starting year: 2010
-
-PREVIEW MODE - Analyzing files
-2020/ 8 files
-2021/ 12 files
-Extra/ 4 files
+Media Library/
+  2024/
+    05/
+      IMG_20240509_100322.jpg
+      VID_20240509_120000.mov
+  _unknown_date/
+    scan-without-date.png
 ```
   </section>
 
   <section className="caseSection">
     <div className="caseHeader">
-      <p className="sectionKicker">Limitations</p>
-      <h2>Intentional constraints</h2>
+      <p className="sectionKicker">Date detection</p>
+      <h2>Metadata first, filename second</h2>
+      <p className="sectionLead">
+        Chronify chooses dates in a layered order so trusted media metadata wins when available, while still handling real-world filenames from cameras, phones, screenshots, and WhatsApp exports.
+      </p>
     </div>
     <div className="caseGrid">
       <article className="caseCard">
-        <h3>Filename based</h3>
-        <p>The current version does not inspect EXIF metadata.</p>
+        <h3>1. Native metadata</h3>
+        <p>Uses embedded metadata for supported JPEG, TIFF/DNG-style, PNG, and WebP files.</p>
       </article>
       <article className="caseCard">
-        <h3>Current directory</h3>
-        <p>The tool processes files in the current folder and does not recurse into subdirectories.</p>
+        <h3>2. Optional tools</h3>
+        <p>When <code>-metadata auto</code> is enabled, Chronify can use <code>ffprobe</code>, <code>exiftool</code>, or macOS <code>mdls</code> if present.</p>
       </article>
       <article className="caseCard">
-        <h3>No undo</h3>
-        <p>Preview mode is recommended because organized file moves are not automatically reversible.</p>
+        <h3>3. Fallbacks</h3>
+        <p>It then checks filename patterns, filesystem modified time, and finally routes unknown files into <code>_unknown_date/</code>.</p>
       </article>
     </div>
+  </section>
+
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Workflow</p>
+      <h2>Recommended usage</h2>
+      <p className="sectionLead">
+        The default run is a dry-run. Review the manifest first, then apply the organization with either move or copy mode.
+      </p>
+    </div>
+
+```bash
+go build -o chronify .
+```
+
+```bash
+./chronify \
+  -source "/Volumes/Camera Dump" \
+  -dest "/Volumes/Media Library"
+```
+
+```bash
+./chronify \
+  -source "/Volumes/Camera Dump" \
+  -dest "/Volumes/Media Library" \
+  -apply \
+  -mode move
+```
+
+```bash
+./chronify \
+  -source "/Volumes/Camera Dump" \
+  -dest "/Volumes/Media Library" \
+  -apply \
+  -mode copy
+```
+  </section>
+
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Controls</p>
+      <h2>Useful flags</h2>
+    </div>
+    <div className="caseGrid">
+      <article className="caseCard">
+        <h3>Input and output</h3>
+        <p><code>-source</code> selects the folder to scan recursively.</p>
+        <p><code>-dest</code> selects where <code>YYYY/MM</code> folders will be created.</p>
+        <p><code>-report</code> sets the CSV manifest path, or <code>none</code>.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Execution mode</h3>
+        <p><code>-apply</code> performs changes; omitted means dry-run.</p>
+        <p><code>-mode</code> chooses <code>move</code> or <code>copy</code>.</p>
+        <p><code>-conflict</code> chooses <code>rename</code> or <code>skip</code> for duplicates.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Date and media filters</h3>
+        <p><code>-media</code> selects <code>all</code>, <code>images</code>, or <code>videos</code>.</p>
+        <p><code>-metadata</code> selects <code>auto</code>, <code>native</code>, or <code>never</code>.</p>
+        <p><code>-min-year</code> and <code>-max-year</code> bound accepted media dates.</p>
+      </article>
+    </div>
+  </section>
+
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Examples</p>
+      <h2>Common operations</h2>
+    </div>
+
+```bash
+./chronify -source ~/Pictures/import -dest ~/Pictures/library -media images
+```
+
+```bash
+./chronify -source ~/Pictures/import -dest ~/Pictures/library -apply -conflict skip
+```
+
+```bash
+./chronify -source ~/Pictures/import -dest ~/Pictures/library -modtime=false
+```
   </section>
 </main>
