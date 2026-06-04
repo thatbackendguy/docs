@@ -1,8 +1,6 @@
 <h1 align="center">Hi 👋🏻, I'm Yash Prajapati</h1>
 <h3 align="center">Software Developer </h3><br>
 
-- 🌱 I’m currently learning Vert.x
-
 - 👨‍💻 All of my projects are available at [Github](https://github.com/thatbackendguy?tab=repositories)
 
 - 💬 Ask me about Data Science, Web-Development, Big Data or anything about Computers
