@@ -5,6 +5,8 @@ title: Experience
 hide_table_of_contents: true
 ---
 
+import CountUpMetric from '@site/src/components/CountUpMetric';
+
 <main className="profilePage">
   <section className="caseHero">
     <p className="portfolioKicker">Experience</p>
@@ -20,25 +22,25 @@ hide_table_of_contents: true
       <h2>Work timeline</h2>
     </div>
     <div className="timelineGrid">
-      <article className="timelineItem">
+      <article className="timelineItem reveal">
         <h3>OOCL</h3>
         <p><strong>Working Student - Data Analyst</strong></p>
         <p>Supporting data process automation and optimization at a global shipping company. Building and maintaining Power BI dashboards and reports, preparing and analyzing operational datasets, and contributing to active digitalization projects.</p>
         <p>Working with internal enterprise systems and collaborating across the IT and Data Analytics team in Hamburg.</p>
       </article>
-      <article className="timelineItem">
+      <article className="timelineItem reveal">
         <h3>BISAG-N</h3>
         <p><strong>Software Developer - Data Science and ML</strong></p>
         <p>Designed and deployed ML pipelines for classification, regression, ANN, and CNN workflows using Python, TensorFlow, and scikit-learn.</p>
         <p>Improved model prediction accuracy by 18% through feature engineering and reduced manual validation time by about 30% through better preprocessing and evaluation workflows.</p>
       </article>
-      <article className="timelineItem">
+      <article className="timelineItem reveal">
         <h3>Motadata</h3>
         <p><strong>Software Developer Intern</strong></p>
         <p>Built scalable real-time NMS components with Vert.x, Go, ZeroMQ, Kafka, MySQL, and PostgreSQL.</p>
         <p>Increased monitoring capacity by 42% to support 1,000+ devices and reduced system latency by about 28% with async event-driven messaging.</p>
       </article>
-      <article className="timelineItem">
+      <article className="timelineItem reveal">
         <h3>tecrave inc.</h3>
         <p><strong>Software Development Intern</strong></p>
         <p>Built a Django CRM portal with REST API integration, optimized MySQL schema design, and documented endpoints with Swagger/OpenAPI.</p>
@@ -74,22 +76,10 @@ hide_table_of_contents: true
       <h2>What I have shipped</h2>
     </div>
     <div className="metricGrid">
-      <div className="metricCard">
-        <strong>98%</strong>
-        <span>Facial recognition accuracy using a Siamese Network.</span>
-      </div>
-      <div className="metricCard">
-        <strong>1,000+</strong>
-        <span>Devices monitored in a real-time NMS platform.</span>
-      </div>
-      <div className="metricCard">
-        <strong>18%</strong>
-        <span>Model accuracy improvement through feature engineering.</span>
-      </div>
-      <div className="metricCard">
-        <strong>30%</strong>
-        <span>Reduction in manual validation time for ML workflows.</span>
-      </div>
+      <CountUpMetric end={98} suffix="%" label="Facial recognition accuracy using a Siamese Network." className="metricCard" />
+      <CountUpMetric end={1000} suffix="+" label="Devices monitored in a real-time NMS platform." className="metricCard" />
+      <CountUpMetric end={18} suffix="%" label="Model accuracy improvement through feature engineering." className="metricCard" />
+      <CountUpMetric end={30} suffix="%" label="Reduction in manual validation time for ML workflows." className="metricCard" />
     </div>
   </section>
 </main>

@@ -8,10 +8,20 @@ pagination_next: null
 pagination_prev: null
 ---
 
+import CountUpMetric from '@site/src/components/CountUpMetric';
+import TypingText from '@site/src/components/TypingText';
+
 <main className="portfolioPage">
   <section className="portfolioHero">
     <div>
-      <p className="portfolioKicker">Data science, ML systems, and backend platforms</p>
+      <p className="portfolioKicker">
+        <TypingText
+          words={["Data Science & ML Systems", "Backend Engineering", "MLOps & Pipelines", "Real-time Systems"]}
+          speed={85}
+          deleteSpeed={50}
+          pause={2400}
+        />
+      </p>
       <h1 className="portfolioTitle">Yash Prajapati</h1>
       <p className="portfolioLead">
         I build practical machine learning pipelines, real-time backend systems, and API-first products that turn messy technical problems into reliable software.
@@ -47,26 +57,14 @@ pagination_prev: null
   </section>
 
   <section className="portfolioMetricGrid" aria-label="Selected outcomes">
-    <div className="portfolioMetric">
-      <strong>98%</strong>
-      <span>Accuracy on a Siamese Network facial recognition project.</span>
-    </div>
-    <div className="portfolioMetric">
-      <strong>1,000+</strong>
-      <span>Devices supported in a real-time Network Monitoring System.</span>
-    </div>
-    <div className="portfolioMetric">
-      <strong>18%</strong>
-      <span>Model accuracy improvement through feature engineering.</span>
-    </div>
-    <div className="portfolioMetric">
-      <strong>28%</strong>
-      <span>Latency reduction using async event-driven messaging.</span>
-    </div>
+    <CountUpMetric end={98} suffix="%" label="Accuracy on a Siamese Network facial recognition project." />
+    <CountUpMetric end={1000} suffix="+" label="Devices supported in a real-time Network Monitoring System." />
+    <CountUpMetric end={18} suffix="%" label="Model accuracy improvement through feature engineering." />
+    <CountUpMetric end={28} suffix="%" label="Latency reduction using async event-driven messaging." />
   </section>
 
   <section className="portfolioSection">
-    <div className="portfolioSectionHeader">
+    <div className="portfolioSectionHeader reveal">
       <p className="sectionKicker">Featured work</p>
       <h2>Portfolio case studies</h2>
       <p className="sectionLead">
@@ -74,7 +72,7 @@ pagination_prev: null
       </p>
     </div>
     <div className="portfolioGrid">
-      <article className="portfolioCard">
+      <article className="portfolioCard reveal">
         <img src="/project_assests/nms/nms1.png" alt="Network Monitoring System dashboard" />
         <h3>Network Monitoring System</h3>
         <p>
@@ -88,7 +86,7 @@ pagination_prev: null
           <span>React</span>
         </div>
       </article>
-      <article className="portfolioCard">
+      <article className="portfolioCard reveal">
         <img src="/project_assests/codecraftpro/Picture1.png" alt="CodeCraftPro collaborative coding workspace" />
         <h3>CodeCraftPro</h3>
         <p>
@@ -102,7 +100,7 @@ pagination_prev: null
           <span>MongoDB</span>
         </div>
       </article>
-      <article className="portfolioCard">
+      <article className="portfolioCard reveal">
         <img src="/project_assests/facialrecsiamese/siamese.png" alt="Siamese Network model architecture" />
         <h3>One-Shot Face Recognition</h3>
         <p>
@@ -119,7 +117,7 @@ pagination_prev: null
   </section>
 
   <section className="portfolioSection">
-    <div className="portfolioSectionHeader">
+    <div className="portfolioSectionHeader reveal">
       <p className="sectionKicker">Experience</p>
       <h2>Engineering with measurable outcomes</h2>
       <p className="sectionLead">
@@ -127,23 +125,23 @@ pagination_prev: null
       </p>
     </div>
     <div className="timelineGrid">
-      <article className="timelineItem">
+      <article className="timelineItem reveal">
+        <h3>OOCL</h3>
+        <p>Working Student - Data Analyst. Supporting data process automation and analytics at a global shipping company. Building Power BI dashboards and contributing to active digitalization projects in Hamburg.</p>
+      </article>
+      <article className="timelineItem reveal">
         <h3>BISAG-N</h3>
         <p>Software Developer - Data Science and ML. Built ML pipelines, tracked experiments with MLflow, and improved model reproducibility across geospatial datasets.</p>
       </article>
-      <article className="timelineItem">
+      <article className="timelineItem reveal">
         <h3>Motadata</h3>
         <p>Software Developer Intern. Built real-time NMS components with Java, Go, SQL databases, and async messaging for monitoring infrastructure at scale.</p>
-      </article>
-      <article className="timelineItem">
-        <h3>tecrave inc.</h3>
-        <p>Software Development Intern. Built a Django CRM portal, optimized MySQL data access, and documented APIs with Swagger/OpenAPI.</p>
       </article>
     </div>
   </section>
 
   <section className="portfolioSection">
-    <div className="portfolioSectionHeader">
+    <div className="portfolioSectionHeader reveal">
       <p className="sectionKicker">Writing</p>
       <h2>Modern engineering notes</h2>
       <p className="sectionLead">
@@ -151,17 +149,17 @@ pagination_prev: null
       </p>
     </div>
     <div className="blogGrid">
-      <article className="blogCard">
+      <article className="blogCard reveal">
         <h3>Real-time monitoring systems</h3>
         <p>How Vert.x, Go, Kafka, and ZeroMQ fit together in a scalable monitoring platform.</p>
         <a href="/blog/building-real-time-network-monitoring-system">Read post</a>
       </article>
-      <article className="blogCard">
+      <article className="blogCard reveal">
         <h3>Siamese Networks</h3>
         <p>A practical walkthrough of one-shot facial recognition and contrastive learning.</p>
         <a href="/blog/siamese-network-one-shot-face-recognition">Read post</a>
       </article>
-      <article className="blogCard">
+      <article className="blogCard reveal">
         <h3>MLOps for applied ML</h3>
         <p>Lessons from reproducible model training, validation, and experiment tracking.</p>
         <a href="/blog/mlops-lessons-geospatial-machine-learning">Read post</a>

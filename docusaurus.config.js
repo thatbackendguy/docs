@@ -9,6 +9,9 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  clientModules: [
+    require.resolve('./src/clientModules/scrollReveal.js'),
+  ],
   scripts: [
     {
       src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",

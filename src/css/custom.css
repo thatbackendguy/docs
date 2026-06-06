@@ -507,3 +507,455 @@ html[data-theme='dark'] .navbar__linkedin {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+.scrollProgressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--portfolio-accent), var(--ifm-color-primary-light));
+  background-size: 200% 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 99999;
+  animation: progressShimmer 3s linear infinite;
+}
+
+@keyframes progressShimmer {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children of grids */
+.portfolioGrid .reveal:nth-child(1),
+.blogGrid .reveal:nth-child(1),
+.profileGrid .reveal:nth-child(1),
+.timelineGrid .reveal:nth-child(1),
+.portfolioMetricGrid .reveal:nth-child(1) { transition-delay: 0ms; }
+
+.portfolioGrid .reveal:nth-child(2),
+.blogGrid .reveal:nth-child(2),
+.profileGrid .reveal:nth-child(2),
+.timelineGrid .reveal:nth-child(2),
+.portfolioMetricGrid .reveal:nth-child(2) { transition-delay: 90ms; }
+
+.portfolioGrid .reveal:nth-child(3),
+.blogGrid .reveal:nth-child(3),
+.profileGrid .reveal:nth-child(3),
+.timelineGrid .reveal:nth-child(3),
+.portfolioMetricGrid .reveal:nth-child(3) { transition-delay: 180ms; }
+
+.portfolioGrid .reveal:nth-child(4),
+.timelineGrid .reveal:nth-child(4),
+.portfolioMetricGrid .reveal:nth-child(4) { transition-delay: 270ms; }
+
+/* ============================================================
+   HERO — ANIMATED BACKGROUND ORBS
+   ============================================================ */
+.portfolioHero {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolioHero::before,
+.portfolioHero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(70px);
+}
+
+.portfolioHero::before {
+  width: 520px;
+  height: 520px;
+  top: -120px;
+  right: -80px;
+  background: radial-gradient(circle, var(--portfolio-primary-soft) 0%, transparent 70%);
+  animation: orbDrift1 12s ease-in-out infinite alternate;
+}
+
+.portfolioHero::after {
+  width: 380px;
+  height: 380px;
+  bottom: -60px;
+  left: -100px;
+  background: radial-gradient(circle, var(--portfolio-accent-soft) 0%, transparent 70%);
+  animation: orbDrift2 14s ease-in-out infinite alternate;
+}
+
+.portfolioHero > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes orbDrift1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(40px, 30px) scale(1.1); }
+}
+
+@keyframes orbDrift2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-30px, -20px) scale(1.08); }
+}
+
+/* ============================================================
+   HERO ENTRANCE ANIMATION
+   ============================================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.portfolioKicker {
+  animation: fadeInUp 0.55s ease both;
+  animation-delay: 0.05s;
+}
+
+.portfolioTitle {
+  animation: fadeInUp 0.6s ease both;
+  animation-delay: 0.15s;
+}
+
+.portfolioLead {
+  animation: fadeInUp 0.65s ease both;
+  animation-delay: 0.25s;
+}
+
+.portfolioActions {
+  animation: fadeInUp 0.65s ease both;
+  animation-delay: 0.35s;
+}
+
+.portfolioAvailability {
+  animation: fadeInUp 0.65s ease both;
+  animation-delay: 0.42s;
+}
+
+.portfolioPanel {
+  animation: fadeInUp 0.7s ease both;
+  animation-delay: 0.2s;
+}
+
+/* ============================================================
+   GRADIENT TITLE
+   ============================================================ */
+.portfolioTitle {
+  background: linear-gradient(
+    135deg,
+    var(--portfolio-ink) 0%,
+    color-mix(in srgb, var(--ifm-color-primary) 60%, var(--portfolio-ink)) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   TYPING TEXT
+   ============================================================ */
+.typingText {
+  display: inline;
+}
+
+.typingCursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--ifm-color-primary);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  border-radius: 1px;
+  animation: cursorBlink 1.1s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ============================================================
+   AVAILABILITY BADGE — PULSING DOT
+   ============================================================ */
+.portfolioStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.portfolioStatus::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  flex-shrink: 0;
+  animation: pulsingDot 2.2s ease-in-out infinite;
+}
+
+@keyframes pulsingDot {
+  0%, 100% { transform: scale(1);   box-shadow: 0 0 0 0   color-mix(in srgb, var(--ifm-color-primary), transparent 50%); }
+  50%       { transform: scale(1.3); box-shadow: 0 0 0 5px color-mix(in srgb, var(--ifm-color-primary), transparent 75%); }
+}
+
+/* ============================================================
+   PORTFOLIO PANEL — ANIMATED BORDER
+   ============================================================ */
+.portfolioPanel {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolioPanel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--ifm-color-primary), transparent 40%),
+    transparent 50%,
+    color-mix(in srgb, var(--portfolio-accent), transparent 60%)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+  animation: borderRotate 6s linear infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes borderRotate {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 200%; }
+}
+
+/* ============================================================
+   METRIC CARDS — COUNT-UP GLOW
+   ============================================================ */
+.countUpMetric strong,
+.portfolioMetric strong,
+.metricCard strong {
+  transition: text-shadow 0.4s ease;
+}
+
+.countUpMetric.is-visible strong,
+.portfolioMetric.is-visible strong {
+  text-shadow: 0 0 28px color-mix(in srgb, var(--portfolio-accent), transparent 45%);
+}
+
+/* ============================================================
+   CARDS — ENHANCED HOVER + TRANSITION
+   ============================================================ */
+.portfolioCard,
+.caseCard,
+.blogCard,
+.profileCard,
+.timelineItem {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+  will-change: transform;
+}
+
+.portfolioCard:hover,
+.caseCard:hover,
+.blogCard:hover,
+.profileCard:hover,
+.timelineItem:hover {
+  border-color: color-mix(in srgb, var(--ifm-color-primary), transparent 45%);
+  box-shadow: 0 12px 36px -8px color-mix(in srgb, var(--ifm-color-primary), transparent 70%);
+}
+
+/* Image zoom in portfolio cards */
+.portfolioCard img {
+  transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.portfolioCard:hover img {
+  transform: scale(1.04);
+}
+
+/* "Read" link on portfolio cards — animated arrow */
+.portfolioCard a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 660;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.portfolioCard a::after {
+  content: '→';
+  transition: transform 0.25s ease;
+}
+
+.portfolioCard:hover a::after {
+  transform: translateX(4px);
+}
+
+/* Blog card hover accent line */
+.blogCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.blogCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--portfolio-accent));
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 0 0 8px 8px;
+}
+
+.blogCard:hover::after {
+  width: 100%;
+}
+
+/* ============================================================
+   TECH PILLS — HOVER GLOW
+   ============================================================ */
+.techPills span,
+.portfolioTagList span {
+  cursor: default;
+  transition: background 0.22s ease, color 0.22s ease, transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease;
+}
+
+.techPills span:hover,
+.portfolioTagList span:hover {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #061312;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px -2px color-mix(in srgb, var(--ifm-color-primary), transparent 50%);
+}
+
+/* ============================================================
+   BUTTONS — RIPPLE + ENHANCED HOVER
+   ============================================================ */
+.portfolioActions .button,
+.linkList .button {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease,
+              background 0.2s ease;
+}
+
+.portfolioActions .button:hover,
+.linkList .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px color-mix(in srgb, var(--ifm-color-primary), transparent 55%);
+}
+
+.portfolioActions .button:active,
+.linkList .button:active {
+  transform: translateY(0);
+}
+
+/* ============================================================
+   TIMELINE — STYLED MARKER
+   ============================================================ */
+.timelineGrid {
+  position: relative;
+}
+
+.timelineItem {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timelineItem::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 1.1rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ifm-color-primary), transparent 70%);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.timelineItem:hover::before {
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--ifm-color-primary), transparent 80%);
+  transform: scale(1.3);
+}
+
+/* ============================================================
+   SECTION KICKER — ANIMATED UNDERLINE
+   ============================================================ */
+.portfolioSectionHeader {
+  position: relative;
+}
+
+.portfolioSectionHeader h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.portfolioSectionHeader h2::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 2rem;
+  background: var(--portfolio-accent);
+  border-radius: 1px;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.portfolioSection:hover .portfolioSectionHeader h2::after,
+.profileSection:hover .portfolioSectionHeader h2::after {
+  width: 100%;
+}
+
+/* ============================================================
+   FOOTER — SOCIAL ICON HOVER
+   ============================================================ */
+.footer a {
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer a:hover {
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   NAVBAR — SMOOTH SCROLL INDICATOR
+   ============================================================ */
+.navbar {
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
