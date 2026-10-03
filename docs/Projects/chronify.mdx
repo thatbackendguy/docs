@@ -1,0 +1,231 @@
+---
+slug: chronify
+title: Chronify
+hide_table_of_contents: true
+---
+
+<main className="caseStudyPage">
+  <section className="caseHero">
+    <p className="portfolioKicker">Go command-line media tooling · v1.0.0</p>
+    <h1>Chronify</h1>
+    <p className="caseLead">
+      A command-line photo and video organizer for large media libraries. Chronify scans a folder, works out when each photo or video was taken, and files it into date folders. It always previews first, asks before changing anything, and every run can be undone.
+    </p>
+    <p>
+      <a href="https://github.com/thatbackendguy/chronify">GitHub repository</a> · <a href="https://github.com/thatbackendguy/chronify/releases/latest">Latest release</a>
+    </p>
+  </section>
+
+  <section className="metricGrid">
+    <div className="metricCard">
+      <strong>Year / Month / Day</strong>
+      <span>Choose the folder layout and how month folders are named.</span>
+    </div>
+    <div className="metricCard">
+      <strong>Preview + Undo</strong>
+      <span>Every run is previewed, confirmed, and reversible from its CSV manifest.</span>
+    </div>
+    <div className="metricCard">
+      <strong>Built-in metadata</strong>
+      <span>Reads capture dates from photos and videos with no external tools.</span>
+    </div>
+    <div className="metricCard">
+      <strong>Single binary</strong>
+      <span>No runtime dependencies; prebuilt for macOS, Linux, and Windows.</span>
+    </div>
+  </section>
+
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Problem</p>
+      <h2>Large media libraries need cautious migration</h2>
+      <p className="sectionLead">
+        Photo and video collections often live across laptops, external drives, camera dumps, phone exports, screenshots, and chat app folders. Chronify organizes those collections without loading media contents into memory and without risky, irreversible first runs.
+      </p>
+    </div>
+    <div className="caseGrid">
+      <article className="caseCard">
+        <h3>Guided setup</h3>
+        <p>Run <code>chronify</code> with no arguments and answer a few questions. It prints the equivalent command at the end so the run can be repeated later.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Preview, confirm, undo</h3>
+        <p>Chronify shows where every file would go, asks <code>[y/N]</code> before acting, and writes a CSV manifest that can reverse the run.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Safe file handling</h3>
+        <p>Existing files are never overwritten, copies are written to a temp file first, and cross-drive moves are verified before the original is deleted.</p>
+      </article>
+    </div>
+    <div className="techPills">
+      <span>Go</span>
+      <span>CLI</span>
+      <span>Exif / MP4 / MKV parsing</span>
+      <span>Parallel workers</span>
+      <span>CSV manifest</span>
+      <span>Undo</span>
+      <span>GitHub Actions releases</span>
+    </div>
+  </section>
+
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Output</p>
+      <h2>Library structure</h2>
+      <p className="sectionLead">
+        The default layout is year → month. Use <code>-by year</code> or <code>-by day</code> to change depth, and <code>-month-format</code> to choose between <code>01 - January</code>, <code>01-Jan</code>, <code>01</code>, <code>January</code>, or <code>Jan</code>.
+      </p>
+    </div>
+
+```text
+Media Library/
+  2024/
+    05 - May/
+      IMG_1234.HEIC
+      IMG_1235.MOV
+  _unknown_date/
+    scan-without-date.png
+```
+  </section>
+
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Date detection</p>
+      <h2>Metadata first, filename second</h2>
+      <p className="sectionLead">
+        Chronify chooses dates in a layered order, so files like <code>IMG_1234.HEIC</code> or <code>IMG_1234.MOV</code> with no date in the name still land in the right folder.
+      </p>
+    </div>
+    <div className="caseGrid">
+      <article className="caseCard">
+        <h3>1. Built-in readers</h3>
+        <p>Native parsers read only the bytes that hold dates: Exif in JPEG, HEIC/AVIF, RAW (CR2, CR3, NEF, ARW, DNG, RAF…), PNG and WebP, plus MP4/MOV, AVI, and MKV/WebM headers. Multi-GB videos stay fast.</p>
+      </article>
+      <article className="caseCard">
+        <h3>2. Optional tools</h3>
+        <p>With <code>-metadata auto</code>, Chronify also uses <code>exiftool</code>, <code>ffprobe</code>, or macOS Spotlight if present, which helps with formats like AVCHD <code>.mts</code>.</p>
+      </article>
+      <article className="caseCard">
+        <h3>3. Fallbacks</h3>
+        <p>It then checks camera, phone, screenshot, and WhatsApp-style filenames, then the file's modified time, and finally routes the file into <code>_unknown_date/</code>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Workflow</p>
+      <h2>Recommended usage</h2>
+      <p className="sectionLead">
+        Install a prebuilt binary from the releases page, or with Go. Preview first, copy for the first real run, then move once you trust the result.
+      </p>
+    </div>
+
+```bash
+go install github.com/thatbackendguy/chronify@latest
+```
+
+```bash
+chronify ~/Pictures/import ~/Pictures/library
+```
+
+```text
+Preview
+  Move 1,284 files (6.2 GB) into /Users/you/Pictures/library
+
+  2023/            412 files  1.9 GB
+    07 - July/     240 files  1.1 GB
+    08 - August/   172 files  0.8 GB
+  2024/            872 files  4.3 GB
+    01 - January/  872 files  4.3 GB
+```
+
+```bash
+chronify -apply -mode copy ~/Pictures/import ~/Pictures/library
+```
+
+```bash
+chronify -apply ~/Pictures/import ~/Pictures/library
+```
+
+```bash
+chronify -undo organizer-report-20250101-120000.csv -apply
+```
+  </section>
+
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Controls</p>
+      <h2>Useful flags</h2>
+    </div>
+    <div className="caseGrid">
+      <article className="caseCard">
+        <h3>Layout</h3>
+        <p><code>-by</code> chooses <code>year</code>, <code>month</code>, or <code>day</code>.</p>
+        <p><code>-month-format</code> sets month folder names.</p>
+        <p><code>-unknown-dir</code> names the folder for undated files.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Execution</h3>
+        <p><code>-apply</code> performs changes; omitted means preview only.</p>
+        <p><code>-mode</code> chooses <code>move</code> or <code>copy</code>; <code>-yes</code> skips confirmation for scripts.</p>
+        <p><code>-undo</code> reverses a run from its manifest.</p>
+        <p><code>-conflict</code> chooses <code>rename</code> or <code>skip</code> for duplicates.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Dates and filters</h3>
+        <p><code>-media</code> selects <code>all</code>, <code>images</code>, or <code>videos</code>.</p>
+        <p><code>-metadata</code> selects <code>auto</code>, <code>native</code>, or <code>never</code>.</p>
+        <p><code>-min-year</code> and <code>-max-year</code> bound accepted dates.</p>
+        <p><code>-json</code> emits machine-readable events for apps.</p>
+      </article>
+    </div>
+  </section>
+
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Examples</p>
+      <h2>Common operations</h2>
+    </div>
+
+```bash
+chronify -by year ~/Pictures/import ~/Pictures/library
+```
+
+```bash
+chronify -month-format short ~/Pictures/import ~/Pictures/library
+```
+
+```bash
+chronify -by day -media videos ~/Movies/import ~/Movies/library
+```
+
+```bash
+chronify -apply -conflict skip ~/Pictures/import ~/Pictures/library
+```
+  </section>
+
+  <section className="caseSection">
+    <div className="caseHeader">
+      <p className="sectionKicker">Beyond the terminal</p>
+      <h2>Chronify for Mac</h2>
+      <p className="sectionLead">
+        A native macOS app built on the same engine: pick or drop a folder, check the preview, organize with live progress, and undo with a click. The CLI stays free, open source, and unlimited; the Mac app is free for the first 100 files, with Chronify Pro removing the limit.
+      </p>
+    </div>
+    <div className="caseGrid">
+      <article className="caseCard">
+        <h3>Chronify CLI</h3>
+        <p>For the terminal, scripts, and servers on macOS, Linux, and Windows. MIT licensed.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Chronify for Mac</h3>
+        <p>For anyone who prefers a window. Requires macOS 14 or newer, Apple Silicon or Intel. Distributed as a DMG from the GitHub releases page.</p>
+      </article>
+      <article className="caseCard">
+        <h3>Shared engine</h3>
+        <p>Both use the same date detection and file handling, so they organize files exactly the same way.</p>
+      </article>
+    </div>
+  </section>
+</main>
